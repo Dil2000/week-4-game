@@ -1,44 +1,51 @@
 
-    $(document).ready(function() {
+  $(document).ready(function() {
 
 
 //  Initial Variables    
       var comPick = "";
       var total = "";  
       var images =["img1","img2","img3","img4"] ;
-      var jewelValues = [];
+      var jewelValue = "";
       var loses = 0;
       var wins  = 0;
+
+
+//  Create Images ;
+
+      CreateImages = function(){
+        for (var i = 0 ; i < images.length ; i++){
+          var imageCrystal = $("<img>");
+          imageCrystal.addClass("crystal-image");
+          imageCrystal.attr("src", "assets/images/"+images[i]+".png");
+          imageCrystal.css({width : "100px" , height : "100px"});
+          $("#crystals").prepend(imageCrystal);          
+        }
+      }
+      
+// calling the function to create images
+      CreateImages();
 
 
 //  import crystal images and generate values for the crystals
 
       CreateRandom = function(){
 
-        //Clean();
-
         total = 0;
-        console.log("back in random");
-
         $("#total-value").html(total);
 
         comPick = Math.floor(Math.random() * 100)+ 19;
         $("#computer-pick").text(comPick);
 
-        for (var i = 0 ; i < images.length ; i++){
-          jewelValues[i] = 0
-          jewelValues[i] = Math.floor(Math.random() * 10) + 1;
+        for (var i = 0 ; i < images.length ; i++) {
+
+          jewelValue = Math.floor(Math.random() * 10) + 1;
           //Math.floor(Math.random()*(max - min+1) + min);
-         
-          var imageCrystal = $("<img>");
-          imageCrystal.addClass("crystal-image");
-          imageCrystal.attr("src", "assets/images/"+images[i]+".png");
-          imageCrystal.attr("data-crystalvalue",  jewelValues[i]);
-          imageCrystal.css({width : "100px" , height : "100px"});
-          $("#crystals").prepend(imageCrystal);
-          console.log("end of random");
+
+          $(".crystal-image").eq(i).attr("value" , jewelValue);
+
         }
-      
+
       };
 
 // Callin the random function 
@@ -66,35 +73,20 @@
 
 //  Click on jewells event 
       $(".crystal-image").on("click", function() {
-        console.log("clicked");
-        var crystalValue = ($(this).attr("data-crystalvalue"));
+        var crystalValue = ($(this).attr("value"));
         console.log("value clicked " + crystalValue);
         crystalValue = parseInt(crystalValue);
 
         // New total value
         total += crystalValue;
         $("#total-value").html(total);
+        
+         $(this).slideUp(100).slideDown(100)
 
         // Check whether it's equal or greater than computer pick
         gameOver();
 
       });
-
-
-
-//  Click Play Again
-      $("#again").on("click",function(){
-        total = 0;
-        jewelValues = [0,0,0,0];
-
-        for (var i = 0 ; i < images.length ; i++){
-          $(".crystal-image").remove();
-          $("#crystals").append();
-        }
-        CreateRandom();
-      });
-
-
 
 
 //  Create a background image for total marks
