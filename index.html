@@ -40,37 +40,30 @@
 
 
   <div class="jumbotron">
-    <h3 class="text-center">Crystal Collector</h3>
-  </div>
-
-  <div class="container">
-
-    <div class="row">
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Instructions</h3>
-          <h5 class="text-center">
-        </div>
-        <div class="panel-body text-center">
+    <h3 class="text-center" id="header1">Crystal Collector</h3>
+        <div class="panel-body text-center ">
           <h5>You will be given a random number at the start of the game. 
           There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
           You win the game by matching your total score to random number. You lose the game if your total score goes above the random number.
           The value of each crystal is hidden from you until you click on it.
           Each time when the game starts the game will change the values of each crystal.</h5>
         </div>
-      </div>
+  </div>
 
+  <div class="container">
+
+    <div class="row">
 
 <!-- --------------------- -->
 
       <div class = "col-sm-3">
         <div class="panel panel-default">
-          <div class="panel-heading">
+          <div class="panel-heading text-center">
             <h3 class="panel-title">Random Number</h3>
           </div>
             <!--  Computer generated number  -->
-          <div class="panel-body text-center">
+          <div class="panel-body text-center"  id = "jewells">
+              <div class = "RotateImage" ></div>
               <h3 id="computer-pick"></h3>
           </div>
         </div>
@@ -79,7 +72,7 @@
       <div class = "col-sm-6">
         <div class="panel panel-default">
           <div class="panel-heading text-center">
-            <h3 class="panel-title">Jewells</h3>
+            <h3 class="panel-title">Crystals</h3>
           </div>
           <div class="panel-body text-center" id="crystals">
           <div class ="img"></div>
@@ -89,7 +82,7 @@
 
       <div class = "col-sm-3">
         <div class="panel panel-default">
-          <div class="panel-heading">
+          <div class="panel-heading text-center">
             <!--  calculated total number when clicked on jewells  -->
             <h3 class="panel-title">Your Total</h3>
           </div>
@@ -102,7 +95,8 @@
 
         </div>
       </div>
-
+  </div>
+<!-- --------------------- -->
 
 <footer>
   <div class="row">
