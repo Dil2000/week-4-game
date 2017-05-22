@@ -56,15 +56,17 @@
 //  Compare total value
       function gameOver(){
         if (total > comPick){
-          alert("You lose"); 
           loses++;
           $('#loses').text("No of Loses : " + loses);
+          $('#loses').animate({fontSize: '2em'}, "slow");
+           alert("You lose"); 
           CreateRandom();
         }
-        else if (total === comPick){
-          alert("You Win");
+        else if (total === comPick){          
           wins++;
           $('#wins').text("No of Wins : " + wins);
+          $('#wins').animate({fontSize: '2em'}, "slow");
+          alert("You Win");
           CreateRandom();
         }
       };
@@ -73,6 +75,7 @@
 
 //  Click on jewells event 
       $(".crystal-image").on("click", function() {
+        
         var crystalValue = ($(this).attr("value"));
         console.log("value clicked " + crystalValue);
         crystalValue = parseInt(crystalValue);
@@ -85,14 +88,18 @@
 
         // Check whether it's equal or greater than computer pick
         gameOver();
-
+        $('#wins').animate({fontSize: '1em'}, "slow");
+        $('#loses').animate({fontSize: '1em'}, "slow");
       });
 
 
 //  Create a background image for total marks
-      //$("#computer-pick").css('backgroundImage','url(assets/images/gems.png)');
+     // $(".RotateImage").attr({src : "assets/images/back.png" , width : "200px" , height :"200px" , backgroundRepeat: 'repeat-x'});
+      $("body").attr({backgroundImage : 'url(assets/images/back.jpg)'});
+      $("#header1").fadeTo('slow', 0.5 );
+      $("#header1").fadeTo('slow', 1);
+      //$("#header1").slideUp('slow');
       $(".panel-heading").css('backgroundColor','#999999');
       $(".panel-heading").css('color','#ffffff');
-
       
 });
