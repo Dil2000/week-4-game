@@ -101,7 +101,7 @@
           $(this).css({backgroundColor : "#2c3e50" , "border-radius" : "25px"});
       },
       function(){
-          $(this).css("backgroundColor" ,"#ffffff");
+          $(this).css("backgroundColor" ,"#ecf0f1");
       });
 
 //  Hover over contact icons
