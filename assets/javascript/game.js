@@ -34,13 +34,13 @@
         total = 0;
         $("#total-value").html(total);
 
-        comPick = Math.floor(Math.random() * 100)+ 19;
+        comPick = Math.floor(Math.random() * 102)+ 19;
         $("#computer-pick").text(comPick);
 
         for (var i = 0 ; i < images.length ; i++) {
 
-          jewelValue = Math.floor(Math.random() * 10) + 1;
-          //Math.floor(Math.random()*(max - min+1) + min);
+          jewelValue = Math.floor(Math.random() * 12) + 1;
+          //Math.floor(Math.random()*(max - min + 1) + min);
 
           $(".crystal-image").eq(i).attr("value" , jewelValue);
 
@@ -90,16 +90,33 @@
         gameOver();
         $('#wins').animate({fontSize: '1em'}, "slow");
         $('#loses').animate({fontSize: '1em'}, "slow");
+
       });
 
 
-//  Create a background image for total marks
-     // $(".RotateImage").attr({src : "assets/images/back.png" , width : "200px" , height :"200px" , backgroundRepeat: 'repeat-x'});
-      $("body").attr({backgroundImage : 'url(assets/images/back.jpg)'});
+
+
+//  Hover over the crystals
+      $(".crystal-image").hover(function(){
+          $(this).css({backgroundColor : "#2c3e50" , "border-radius" : "25px"});
+      },
+      function(){
+          $(this).css("backgroundColor" ,"#ffffff");
+      });
+
+//  Hover over contact icons
+      $(".icons").hover(function(){
+          $(this).css("opacity","0.5");
+      },
+      function(){
+          $(this).css("opacity","1");
+      });
+
+//  CSS Fun
+     //width : "200px" , height :"200px" , backgroundRepeat: 'repeat-x'});
+      $("body").attr({background: 'assets/images/back.jpg'});
       $("#header1").fadeTo('slow', 0.5 );
       $("#header1").fadeTo('slow', 1);
-      //$("#header1").slideUp('slow');
       $(".panel-heading").css('backgroundColor','#999999');
-      $(".panel-heading").css('color','#ffffff');
-      
+      $(".panel-heading").css('color','#ffffff');      
 });
